@@ -65,17 +65,10 @@
               ></i
               >{{ $t('m.NavBar_Group') }}</el-menu-item
             >
-            <el-submenu index="about">
-              <template slot="title"
-                ><i class="el-icon-info"></i>{{ $t('m.NavBar_About') }}</template
-              >
-              <el-menu-item index="/introduction">{{
+            <el-menu-item index="/introduction">
+              <i class="el-icon-info"></i>{{
                 $t('m.NavBar_Introduction')
               }}</el-menu-item>
-              <el-menu-item index="/developer">{{
-                $t('m.NavBar_Developer')
-              }}</el-menu-item>
-            </el-submenu>
         </template>
         <template v-else-if="mode == 'training'">
           <el-menu-item index="/home"

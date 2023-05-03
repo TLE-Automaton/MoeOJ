@@ -35,9 +35,6 @@
               <p>
                 <a @click="goRoute('/status')">{{ $t('m.Judging_Queue') }}</a>
               </p>
-              <p>
-                <a @click="goRoute('/developer')">{{ $t('m.System_Info') }}</a>
-              </p>
             </el-col>
             <el-col class="hr-none">
               <el-divider></el-divider>
@@ -49,13 +46,12 @@
               <h1>{{ $t('m.Development') }}</h1>
               <p class="mb-1">
                 <a
-                  href="https://gitee.com/himitzh0730/hoj"
+                  href="https://github.com/TLE-Automaton/MoeOJ"
                   target="_blank"
                 >{{
                   $t('m.Open_Source')
                 }}</a>
               </p>
-              <p class="mb-1"><a @click="goRoute('/#')">API</a></p>
             </el-col>
             <el-col class="hr-none">
               <el-divider></el-divider>
@@ -71,28 +67,31 @@
                   aria-hidden="true"
                 ></i><a @click="goRoute('/introduction')"> {{ $t('m.NavBar_About') }}</a>
               </p>
-              <p>
-                <i class="el-icon-document"></i>
-                <a
-                  href="https://docs.hdoi.cn"
-                  target="_blank"
-                > {{ $t('m.Help') }}</a>
-              </p>
             </el-col>
           </el-row>
         </div>
         <div class="mundb-footer">
+        <p>
           <a
             style="color:#1E9FFF"
             :href="websiteConfig.recordUrl"
             target="_blank"
           >{{ websiteConfig.recordName }}</a>
+        </p>
+        <p>
           Powered by
           <a
             :href="websiteConfig.projectUrl"
             style="color:#1E9FFF"
             target="_blank"
           >{{ websiteConfig.projectName }}</a>
+          , Modified by 
+          <a
+            href="https://github.com/TLE-Automaton"
+            style="color:#1E9FFF"
+            target="_blank">TLE_Automaton</a>
+        </p>
+        <p>
           <span style="margin-left:10px">
             <el-dropdown
               @command="changeWebLanguage"
@@ -111,6 +110,7 @@
               </el-dropdown-menu>
             </el-dropdown>
           </span>
+        </p>
         </div>
       </footer>
     </div>
