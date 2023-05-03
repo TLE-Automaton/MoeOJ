@@ -24,13 +24,7 @@
       </span>
     </div>
     <transition-group name="el-zoom-in-bottom">
-      <div
-        class="no-announcement"
-        v-if="!announcements.length"
-        key="no-announcement"
-      >
-        <el-empty :description="$t('m.No_Announcements')"></el-empty>
-      </div>
+      
       <template v-if="listVisible">
         <ul class="announcements-container" key="list">
           <li v-for="announcement in announcements" :key="announcement.title">

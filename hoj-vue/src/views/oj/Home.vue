@@ -6,94 +6,12 @@
         :sm="24"
       >
         <el-card>
-          <div
-            slot="header"
-            class="content-center"
-          >
             <span class="panel-title home-title welcome-title">{{ $t('m.Welcome_to')
               }}{{ websiteConfig.shortName }}</span>
-          </div>
-          <el-carousel
-            :interval="interval"
-            :height="srcHight"
-            class="img-carousel"
-            arrow="always"
-            indicator-position="outside"
-          >
-            <el-carousel-item
-              v-for="(item, index) in carouselImgList"
-              :key="index"
-            >
-              <el-image
-                :src="item.url"
-                fit="fill"
-              >
-                <div
-                  slot="error"
-                  class="image-slot"
-                >
-                  <i class="el-icon-picture-outline"></i>
-                </div>
-              </el-image>
-            </el-carousel-item>
-          </el-carousel>
+        
         </el-card>
         <Announcements class="card-top"></Announcements>
         <SubmissionStatistic class="card-top"></SubmissionStatistic>
-        <el-card class="card-top">
-          <div
-            slot="header"
-            class="clearfix"
-          >
-            <span class="panel-title home-title">
-              <i class="el-icon-magic-stick"></i> {{
-              $t('m.Latest_Problem')
-            }}</span>
-          </div>
-          <vxe-table
-            border="inner"
-            highlight-hover-row
-            stripe
-            :loading="loading.recentUpdatedProblemsLoading"
-            auto-resize
-            :data="recentUpdatedProblems"
-            @cell-click="goProblem"
-          >
-            <vxe-table-column
-              field="problemId"
-              :title="$t('m.Problem_ID')"
-              min-width="100"
-              show-overflow
-              align="center"
-            >
-            </vxe-table-column>
-            <vxe-table-column
-              field="title"
-              :title="$t('m.Title')"
-              show-overflow
-              min-width="130"
-              align="center"
-            >
-            </vxe-table-column>
-            <vxe-table-column
-              field="gmtModified"
-              :title="$t('m.Recent_Update')"
-              show-overflow
-              min-width="96"
-              align="center"
-            >
-              <template v-slot="{ row }">
-                <el-tooltip
-                  :content="row.gmtModified | localtime"
-                  placement="top"
-                >
-                  <span>{{ row.gmtModified | fromNow }}</span>
-                </el-tooltip>
-              </template>
-            </vxe-table-column>
-
-          </vxe-table>
-        </el-card>
       </el-col>
       <el-col
         :md="9"
@@ -307,6 +225,60 @@
               align="left"
             >
             </vxe-table-column>
+          </vxe-table>
+        </el-card>
+        <el-card class="card-top">
+          <div
+            slot="header"
+            class="clearfix"
+          >
+            <span class="panel-title home-title">
+              <i class="el-icon-magic-stick"></i> {{
+              $t('m.Latest_Problem')
+            }}</span>
+          </div>
+          <vxe-table
+            border="inner"
+            highlight-hover-row
+            stripe
+            :loading="loading.recentUpdatedProblemsLoading"
+            auto-resize
+            :data="recentUpdatedProblems"
+            @cell-click="goProblem"
+          >
+            <vxe-table-column
+              field="problemId"
+              :title="$t('m.Problem_ID')"
+              min-width="100"
+              show-overflow
+              align="center"
+            >
+            </vxe-table-column>
+            <vxe-table-column
+              field="title"
+              :title="$t('m.Title')"
+              show-overflow
+              min-width="130"
+              align="center"
+            >
+            </vxe-table-column>
+            <vxe-table-column
+              field="gmtModified"
+              :title="$t('m.Recent_Update')"
+              show-overflow
+              min-width="96"
+              align="center"
+            >
+              <template v-slot="{ row }">
+                <el-tooltip
+                  :content="row.gmtModified | localtime"
+                  placement="top"
+                >
+                  <span>{{ row.gmtModified | fromNow }}</span>
+                </el-tooltip>
+              </template>
+            </vxe-table-column>
+
           </vxe-table>
         </el-card>
         <el-card class="card-top">

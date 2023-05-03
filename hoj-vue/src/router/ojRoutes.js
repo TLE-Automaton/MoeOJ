@@ -61,67 +61,67 @@ const ojRoutes = [
     path: '/problem',
     name: 'ProblemList',
     component: ProblemLIst,
-    meta: { title: 'Problem' }
+    meta: {requireAuth: true,  title: 'Problem' }
   },
   {
     path: '/problem/:problemID',
     name: 'ProblemDetails',
     component: Problem,
-    meta: { title: 'Problem Details' }
+    meta: {requireAuth: true,  title: 'Problem Details' }
   },
   {
     name: 'TrainingFullProblemDetails',
     path: '/training/:trainingID/problem/:problemID/full-screen',
     component: Problem,
-    meta: { title: 'Training Problem Details', fullScreenSource: 'training'}
+    meta: {requireAuth: true,  title: 'Training Problem Details', fullScreenSource: 'training'}
   },
   {
     name: 'ContestFullProblemDetails',
     path: '/contest/:contestID/problem/:problemID/full-screen',
     component: Problem,
-    meta: { title: 'Contest Problem Details', fullScreenSource: 'contest'}
+    meta: {requireAuth: true,  title: 'Contest Problem Details', fullScreenSource: 'contest'}
   },
   {
     name: 'GroupFullProblemDetails',
     path: '/group/:groupID/problem/:problemID/full-screen',
     component: Problem,
-    meta: { title: 'Group Problem Details', fullScreenSource: 'group' }
+    meta: {requireAuth: true,  title: 'Group Problem Details', fullScreenSource: 'group' }
   },
   {
     name: 'GroupTrainingFullProblemDetails',
     path: '/group/:groupID/training/:trainingID/problem/:problemID/full-screen',
     component: Problem,
-    meta: { title: 'Group Training Problem Details', fullScreenSource: 'training'}
+    meta: {requireAuth: true,  title: 'Group Training Problem Details', fullScreenSource: 'training'}
   },
   {
     path: '/training',
     name: 'TrainingList',
     component: TrainingList,
-    meta: { title: 'Training' }
+    meta: {requireAuth: true,  title: 'Training' }
   },
   {
     name: 'TrainingDetails',
     path: '/training/:trainingID/',
     component:TrainingDetails,
-    meta: {title: 'Training Details'},
+    meta: {requireAuth: true, title: 'Training Details'},
     children: [
       {
         name: 'TrainingProblemList',
         path: 'problems',
         component: TrainingProblemList,
-        meta: { title: 'Training Problem' }
+        meta: {requireAuth: true,  title: 'Training Problem' }
       },
       {
         name: 'TrainingProblemDetails',
         path: 'problem/:problemID',
         component: Problem,
-        meta: { title: 'Training Problem Details' }
+        meta: {requireAuth: true,  title: 'Training Problem Details' }
       },
       {
         name: 'TrainingRank',
         path: 'rank',
         component: TrainingRank,
-        meta: { title: 'Training Rank' }
+        meta: {requireAuth: true,  title: 'Training Rank' }
       }
     ]
   },
@@ -129,97 +129,97 @@ const ojRoutes = [
     path: '/contest',
     name: 'ContestList',
     component: ContestList,
-    meta: { title: 'Contest' }
+    meta: {requireAuth: true,  title: 'Contest' }
   },
   {
     path: '/contest/acm-scoreboard/:contestID',
     name: 'ACMScoreBoard',
     component: ACMScoreBoard,
-    meta: { title: 'ACM Contest ScoreBoard' }
+    meta: {requireAuth: true,  title: 'ACM Contest ScoreBoard' }
   },
   {
     path: '/contest/oi-scoreboard/:contestID',
     name: 'OIScoreBoard',
     component: OIScoreBoard,
-    meta: { title: 'OI Contest ScoreBoard' }
+    meta: {requireAuth: true,  title: 'OI Contest ScoreBoard' }
   },
   {
     name: 'ContestDetails',
     path: '/contest/:contestID/',
     component:ContestDetails,
-    meta: {title: 'Contest Details',requireAuth:true},
+    meta: {requireAuth: true, title: 'Contest Details',requireAuth:true},
     children: [
       {
         name: 'ContestSubmissionList',
         path: 'submissions',
         component: SubmissionList,
-        meta: { title: 'Contest Submission' }
+        meta: {requireAuth: true,  title: 'Contest Submission' }
       },
       {
         name: 'ContestSubmissionDetails',
         path: 'problem/:problemID/submission-detail/:submitID',
         component: SubmissionDetails,
-        meta: { title: 'Contest Submission Details' }
+        meta: {requireAuth: true,  title: 'Contest Submission Details' }
       },
       {
         name: 'ContestProblemList',
         path: 'problems',
         component: ContestProblemList,
-        meta: { title: 'Contest Problem' }
+        meta: {requireAuth: true,  title: 'Contest Problem' }
       },
       {
         name: 'ContestProblemDetails',
         path: 'problem/:problemID/',
         component: Problem,
-        meta: { title: 'Contest Problem Details' }
+        meta: {requireAuth: true,  title: 'Contest Problem Details' }
       },
       {
         name: 'ContestAnnouncementList',
         path: 'announcements',
         component: Announcements,
-        meta: { title: 'Contest Announcement' }
+        meta: {requireAuth: true,  title: 'Contest Announcement' }
       },
       {
         name: 'ContestRank',
         path: 'rank',
         component: ContestRank,
-        meta: { title: 'Contest Rank' }
+        meta: {requireAuth: true,  title: 'Contest Rank' }
       },
       {
         name: 'ContestACInfo',
         path: 'ac-info',
         component: ACMInfoAdmin,
-        meta: { title: 'Contest AC Info'}
+        meta: {requireAuth: true,  title: 'Contest AC Info'}
       },
       {
         name:'ContestRejudgeAdmin',
         path:'rejudge',
         component:ContestRejudgeAdmin,
-        meta: { title: 'Contest Rejudge',requireSuperAdmin:true }
+        meta: {requireAuth: true,  title: 'Contest Rejudge',requireSuperAdmin:true }
       },
       {
         name: 'ContestComment',
         path:'comment',
         component: ContestComment,
-        meta: { title: 'Contest Comment', access:'contestComment'}
+        meta: { requireAuth: true, title: 'Contest Comment', access:'contestComment'}
       },
       {
         name: 'ContestPrint',
         path:'print',
         component: ContestPrint,
-        meta: { title: 'Contest Print'}
+        meta: {requireAuth: true,  title: 'Contest Print'}
       },
       {
         name: 'ContestAdminPrint',
         path:'admin-print',
         component: ContestAdminPrint,
-        meta: { title: 'Contest Admin Print'}
+        meta: {requireAuth: true,  title: 'Contest Admin Print'}
       },
       {
         name: 'ScrollBoard',
         path:'scroll-board',
         component: ScrollBoard,
-        meta: { title: 'Contest Scroll Board'}
+        meta: {requireAuth: true,  title: 'Contest Scroll Board'}
       }
     ]
   },
@@ -227,31 +227,31 @@ const ojRoutes = [
     path: '/status',
     name: 'SubmissionList',
     component: SubmissionList,
-    meta: { title: 'Status' }
+    meta: {requireAuth: true,  title: 'Status' }
   },
   {
     path: '/submission-detail/:submitID',
     name: 'SubmissionDetails',
     component: SubmissionDetails,
-    meta: {title: 'Submission Details' }
+    meta: {requireAuth: true, title: 'Submission Details' }
   },
   {
     path: '/acm-rank',
     name: 'ACM Rank',
     component: ACMRank,
-    meta: { title: 'ACM Rank' }
+    meta: {requireAuth: true,  title: 'ACM Rank' }
   },
   {
     path: '/oi-rank',
     name: 'OI Rank',
     component: OIRank,
-    meta: { title: 'OI Rank' }
+    meta: {requireAuth: true,  title: 'OI Rank' }
   },
   {
     path: '/reset-password',
     name: 'SetNewPassword',
     component: SetNewPassword,
-    meta: { title: 'Reset Password' }
+    meta: {requireAuth: true,  title: 'Reset Password' }
   },
   {
     name: 'UserHome',
@@ -274,13 +274,13 @@ const ojRoutes = [
   {
     path: '/discussion',
     name: 'AllDiscussion',
-    meta: {title: 'Discussion', access:'discussion'},
+    meta: {requireAuth: true, title: 'Discussion', access:'discussion'},
     component:DiscussionList
   },
   {
     path: '/discussion/:problemID',
     name: 'ProblemDiscussion',
-    meta: {title: 'Discussion', access:'discussion'},
+    meta: {requireAuth: true, title: 'Discussion', access:'discussion'},
     component:DiscussionList
   },
   {
@@ -293,13 +293,13 @@ const ojRoutes = [
     path: '/group',
     name: 'GroupList',
     component: GroupList,
-    meta: {title: 'Group'}
+    meta: {requireAuth: true, title: 'Group'}
   },
   {
     path: '/group/:groupID',
     name: 'GroupDetails',
     component: GroupDetails,
-    meta: {title: 'Group Details', requireAuth: true},
+    meta: {requireAuth: true, title: 'Group Details', requireAuth: true},
     children: [
       {
         path: 'announcement',
