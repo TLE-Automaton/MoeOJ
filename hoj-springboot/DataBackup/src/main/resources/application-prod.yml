@@ -60,8 +60,8 @@ spring:
   # 配置文件上传限制
   servlet:
     multipart:
-      max-file-size: 512MB
-      max-request-size: 512MB
+      max-file-size: 5120MB
+      max-request-size: 5120MB
 
   redis:
     host: ${redis-host}
