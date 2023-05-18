@@ -140,53 +140,59 @@ export const JUDGE_STATUS_RESERVE={
 export const PROBLEM_LEVEL={
   '0':{
     name:{
+      'zh-CN':'No Level',
+      'en-US':'No Level',
+    },
+    color:'#AD9F9F'
+  },'1':{
+    name:{
       'zh-CN':'Level1',
       'en-US':'Level1',
     },
     color:'#FF0000'
-  },'10':{
+  },'2':{
     name:{
       'zh-CN':'Level2',
       'en-US':'Level2',
     },
     color:'#FF8400'
-  },'20':{
+  },'3':{
     name:{
       'zh-CN':'Level3',
       'en-US':'Level3',
     },
     color:'#FFFB00'
-  },'30':{
+  },'4':{
     name:{
       'zh-CN':'Level4',
       'en-US':'Level4',
     },
     color:'#80FF00'
-  },'40':{
+  },'5':{
     name:{
       'zh-CN':'Level5',
       'en-US':'Level5',
     },
     color:'#00F7FF'
-  },'50':{
+  },'6':{
     name:{
       'zh-CN':'Level6',
       'en-US':'Level6',
     },
     color:'#001EFF'
-  },'60':{
+  },'7':{
     name:{
       'zh-CN':'Level7',
       'en-US':'Level7',
     },
     color:'#D500FF'
-  },'70':{
+  },'8':{
     name:{
       'zh-CN':'Level8',
       'en-US':'Level8',
     },
     color:'#0F65B5'
-  },'80':{
+  },'9':{
     name:{
       'zh-CN':'Level9',
       'en-US':'Level9',
