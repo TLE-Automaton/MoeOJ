@@ -1580,7 +1580,7 @@ export default {
           // 同时是oi题目，则对应的每个测试样例的io得分不能为空或小于0
           if (this.problem.type == 1) {
             for (let i = 0; i < this.problemSamples.length; i++) {
-              if (this.problemSamples[i].score == "") {
+              if (problemSamples[i].score.toString() == "") {
                 myMessage.error(
                   this.$i18n.t("m.Problem_Sample") +
                     (this.problemSamples[i].index) +
@@ -1636,7 +1636,7 @@ export default {
           if (this.problem.type == 1) {
             let problemSamples = this.problem.testCaseScore;
             for (let i = 0; i < problemSamples.length; i++) {
-              if (problemSamples[i].score == "") {
+              if (problemSamples[i].score.toString() == "") {
                 myMessage.error(
                   this.$i18n.t("m.Problem_Sample") +
                     (i + 1) +

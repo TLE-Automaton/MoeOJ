@@ -194,7 +194,7 @@
             field="tag"
             :title="$t('m.Tags')"
             min-width="230"
-            visible="false"
+            visible="true"
           >
             <template v-slot="{ row }">
               <span
@@ -355,7 +355,7 @@ export default {
       JUDGE_STATUS_RESERVE: {},
       REMOTE_OJ: {},
       tagsAndClassificationList:[],
-      tagVisible: false,
+      tagVisible: true,
       currentProblemTitle: '',
       problemRecord: [],
       problemList: [],
@@ -414,7 +414,7 @@ export default {
     this.loadings.table = true;
     setTimeout(() => {
       // 将指定列设置为隐藏状态
-      this.$refs.problemList.getColumnByField('tag').visible = false;
+      this.$refs.problemList.getColumnByField('tag').visible = true;
       this.$refs.problemList.refreshColumn();
       this.loadings.table = false;
     }, 200);
