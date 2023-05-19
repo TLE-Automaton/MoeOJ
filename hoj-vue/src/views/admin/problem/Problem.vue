@@ -1578,7 +1578,8 @@ export default {
           }
 
           // 同时是oi题目，则对应的每个测试样例的io得分不能为空或小于0
-          if (this.problem.type == 1) {
+          if (this.problem.type == 1) {  
+            let problemSamples = this.problemSamples;
             for (let i = 0; i < this.problemSamples.length; i++) {
               if (problemSamples[i].score.toString() == "") {
                 myMessage.error(
