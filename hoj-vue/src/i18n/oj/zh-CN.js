@@ -200,6 +200,7 @@ export const m = {
   Support: '支持',
   Help: '帮助',
   Group: 'Q群',
+  ServerTime: '服务器时间',
 
   // /views/oj/Home.vue
   Welcome_to: '欢迎使用 ',

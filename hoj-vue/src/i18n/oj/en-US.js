@@ -200,6 +200,7 @@ export const m = {
   Support: 'Support',
   Help: 'Help',
   Group: 'Group',
+  ServerTime: 'Server Time',
 
   // /views/oj/Home.vue
   Welcome_to: 'Welcome to ',
