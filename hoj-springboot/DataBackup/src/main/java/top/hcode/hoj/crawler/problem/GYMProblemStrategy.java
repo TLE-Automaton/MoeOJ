@@ -1,5 +1,6 @@
 package top.hcode.hoj.crawler.problem;
 
+import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.ReUtil;
 import cn.hutool.http.HttpRequest;
@@ -127,6 +128,7 @@ public class GYMProblemStrategy extends CFProblemStrategy {
                 }
                 String fileName = IdUtil.fastSimpleUUID() + ".pdf";
                 String filePath = Constants.File.PROBLEM_FILE_FOLDER.getPath() + File.separator + fileName;
+                FileUtil.mkdir(Constants.File.PROBLEM_FILE_FOLDER.getPath());
                 CodeForcesUtils.downloadPDF(IMAGE_HOST + uri, filePath);
                 pdfURI = Constants.File.FILE_API.getPath() + fileName;
 
@@ -140,6 +142,7 @@ public class GYMProblemStrategy extends CFProblemStrategy {
                 try {
                     String fileName = IdUtil.fastSimpleUUID() + ".pdf";
                     String filePath = Constants.File.PROBLEM_FILE_FOLDER.getPath() + File.separator + fileName;
+                    FileUtil.mkdir(Constants.File.PROBLEM_FILE_FOLDER.getPath());
                     CodeForcesUtils.downloadPDF(HOST + "/gym/" + contestNum + "/problem/" + problemNum, filePath);
                     pdfURI = Constants.File.FILE_API.getPath() + fileName;
                 } catch (Exception e2) {
