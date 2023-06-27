@@ -440,6 +440,13 @@ a:hover {
   color: #409eff;
   font-family: "Raleway";
 }
+.contest-config{
+  text-align:right;
+}
+.contest-config-switches p span{
+  margin-left: 8px;
+  margin-right: 4px;
+}
 
 .contest-rank-filter{
   margin: 10px 0;
@@ -454,11 +461,18 @@ a:hover {
 .contest-rank-config span {
   margin-left: 5px;
 }
+.contest-config span {
+  margin-left: 5px;
+}
 @media screen and (max-width: 992px) {
   .contest-rank-config{
     text-align:center; 
     margin-bottom: 10px;
     margin-top: -1px;
+  }
+  .contest-config{
+    margin-top: 5px;
+    text-align:center;
   }
   .contest-scoreBoard-config{
     margin-top: 10px !important;
@@ -540,7 +554,9 @@ a:hover {
   background-color: #2d8cf0;
   color: #fff;
 }
-
+.after-ac {
+  background-color: rgba(92,184,92,.4);
+}
 .first-ac {
   background-color: #1daa1d;
 }

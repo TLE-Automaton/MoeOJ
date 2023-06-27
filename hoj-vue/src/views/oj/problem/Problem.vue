@@ -693,7 +693,7 @@
                       :closable="false"
                     >{{ $t('m.You_have_submitted_a_solution') }}</el-alert>
                   </div>
-                  <div v-if="contestEnded">
+                  <div v-if="contestEnded && !statusVisible">
                     <el-alert
                       type="warning"
                       show-icon
@@ -1008,6 +1008,7 @@ export default {
         } else {
           params.beforeContestSubmit = false;
         }
+        params.containsEnd = true;
       }
       let func = this.contestID
         ? "getContestSubmissionList"
@@ -1271,14 +1272,13 @@ export default {
       if (this.$route.params.trainingID) {
         this.trainingID = this.$route.params.trainingID;
       }
-
       let func =
         this.$route.name === "ContestProblemDetails" ||
         this.$route.name === "ContestFullProblemDetails"
           ? "getContestProblem"
           : "getProblem";
       this.loading = true;
-      api[func](this.problemID, this.contestID, this.groupID).then(
+      api[func](this.problemID, this.contestID, this.groupID, true).then(
         (res) => {
           let result = res.data.data;
           this.changeDomTitle({ title: result.problem.title });
@@ -1303,7 +1303,8 @@ export default {
                 pidList,
                 isContestProblemList,
                 this.contestID,
-                this.groupID
+                this.groupID,
+                true
               )
               .then((res) => {
                 let statusMap = res.data.data;
@@ -1346,6 +1347,10 @@ export default {
           this.loading = false;
         }
       );
+      
+      if(this.activeName == "mySubmission"){
+        this.getMySubmission();
+      }
     },
     changePie(problemData) {
       let total = problemData.total;
@@ -1758,7 +1763,7 @@ export default {
       "contestStatus",
       "isAuthenticated",
       "canSubmit",
-      "websiteConfig",
+      "websiteConfig"
     ]),
     contest() {
       return this.$store.state.contest.contest;
@@ -1843,10 +1848,18 @@ export default {
   watch: {
     $route() {
       this.initProblemCodeAndSetting();
+      this.submitted = false;
+      this.submitDisabled = false;
+      this.submitting = false;
+      this.statusVisible = false;
       this.init();
     },
     isAuthenticated(newVal) {
       if (newVal === true) {
+        this.submitted = false;
+        this.submitDisabled = false;
+        this.submitting = false;
+        this.statusVisible = false;
         this.init();
       }
     },
