@@ -67,6 +67,7 @@
                       </table>
                       </el-popover>
                     </span>
+                    
                     <span v-if="contestID && !contestEnded">
                       <el-tag
                         effect="plain"
@@ -110,9 +111,18 @@
                         $t('m.No_tag')
                       }}</el-tag>
                     </span>
+                  <el-button
+                        effect="plain"
+                        size="mini"
+                      icon="el-icon-edit-outline"
+                      @click.native="goEdit(problemData.problem.id)"
+                      type="primary"
+                    >
+                    {{ $t('m.Edit') }}
+                    </el-button>
                   </div>
-                  
                   <div class="problem-menu">
+                    
                     <span v-if="isShowProblemDiscussion">
                       <el-link
                         type="primary"
@@ -460,7 +470,6 @@
                 </div>
               </template>
             </el-tab-pane>
-
             <el-tab-pane
               name="extraFile"
               v-if="userExtraFile"
@@ -986,6 +995,15 @@ export default {
           this.tabSize = individualLanguageAndSetting.tabSize;
         }
       }
+    },
+    goEdit(problemId) {
+      this.$router.push({
+        name: 'admin-edit-problem',
+        params: { problemId },
+        query: {
+          back: this.$route.fullPath,
+        },
+      });
     },
     handleClickTab({ name }) {
       if (name == "mySubmission" && this.isAuthenticated) {
@@ -2045,6 +2063,10 @@ a {
   .submit-detail {
     height: 100%;
   }
+}
+
+.el-button {
+  margin-left: 10px;
 }
 /deep/ .el-card__header {
   border-bottom: 0px;

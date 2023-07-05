@@ -296,10 +296,10 @@ public class TrainingManager {
         int pos = 0;
         for (TrainingRecordVO trainingRecordVo : trainingRecordVOList) {
             // 超级管理员和训练创建者的提交不入排行榜
-            if (username.equals(trainingRecordVo.getUsername())
-                    || superAdminUidList.contains(trainingRecordVo.getUid())) {
-                continue;
-            }
+//            if (username.equals(trainingRecordVo.getUsername())
+//                    || superAdminUidList.contains(trainingRecordVo.getUid())) {
+//                continue;
+//            }
 
             // 如果有搜索关键词则 需要符合模糊匹配 用户名、真实姓名、学校的用户可进行榜单记录
             if (StrUtil.isNotBlank(keyword)) {

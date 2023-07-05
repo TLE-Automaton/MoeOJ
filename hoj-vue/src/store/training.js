@@ -35,7 +35,7 @@ const getters = {
   // 是否需要显示密码验证框
   trainingPasswordFormVisible: (state, getters) => {
     // 如果是公开训练，或已注册过，管理员都不用再显示
-    return !state.intoAccess && state.training.auth != TRAINING_TYPE.Public.name && !getters.isTrainingAdmin 
+    return !state.intoAccess && state.training.auth != TRAINING_TYPE.Public.name
   }
 }
 
