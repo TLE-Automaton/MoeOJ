@@ -22,7 +22,7 @@ public class CodeForcesUtils {
 
     public static String getRCPC() {
         if (RCPC == null){
-            HttpRequest request = HttpRequest.get("https://codeforces.com")
+            HttpRequest request = HttpRequest.get("https://codeforc.es")
                     .timeout(20000);
             String html = request.execute().body();
             List<String> list = ReUtil.findAll("[a-z0-9]+[a-z0-9]{31}", html, 0, new ArrayList<>());

@@ -28,7 +28,7 @@ import java.util.regex.Pattern;
 
 public class GYMProblemStrategy extends CFProblemStrategy {
 
-    public static final String IMAGE_HOST = "https://codeforces.com";
+    public static final String IMAGE_HOST = "https://codeforc.es";
 
     public static final String LOGIN_URL = "/enter";
 
@@ -45,7 +45,7 @@ public class GYMProblemStrategy extends CFProblemStrategy {
 
     @Override
     public String getProblemSource(String html, String problemId, String contestNum, String problemNum) {
-        return String.format("<p>Problem：<a style='color:#1A5CC8' href='https://codeforces.com/gym/%s/problem/%s'>%s</a></p><p>" +
+        return String.format("<p>Problem：<a style='color:#1A5CC8' href='https://codeforc.es/gym/%s/problem/%s'>%s</a></p><p>" +
                         "Contest：" + ReUtil.get("(<a[^<>]+/gym/\\d+\">.+?</a>)", html, 1)
                         .replace("/gym", HOST + "/gym")
                         .replace("color: black", "color: #009688;") + "</p>",
@@ -108,7 +108,7 @@ public class GYMProblemStrategy extends CFProblemStrategy {
         problem.setTimeLimit((int) (Double.parseDouble(matcher.group(3)) * 1000));
         problem.setMemoryLimit(Integer.parseInt(matcher.group(4)));
 
-        problem.setSource(String.format("<p>Problem：<a style='color:#1A5CC8' href='https://codeforces.com/gym/%s/attachments'>%s</a></p><p>" +
+        problem.setSource(String.format("<p>Problem：<a style='color:#1A5CC8' href='https://codeforc.es/gym/%s/attachments'>%s</a></p><p>" +
                         "Contest：" + ReUtil.get("(<a[^<>]+/gym/\\d+\">.+?</a>)", html, 1)
                         .replace("/gym", HOST + "/gym")
                         .replace("color: black", "color: #009688;") + "</p>",

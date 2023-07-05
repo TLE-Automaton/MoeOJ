@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
 public class CFProblemStrategy extends ProblemStrategy {
 
     public static final String JUDGE_NAME = "CF";
-    public static final String HOST = "https://codeforces.com";
+    public static final String HOST = "https://codeforc.es";
     public static final String PROBLEM_URL = "/problemset/problem/%s/%s";
 
     protected List<HttpCookie> cookies;
@@ -38,7 +38,7 @@ public class CFProblemStrategy extends ProblemStrategy {
     }
 
     public String getProblemSource(String html, String problemId, String contestId, String problemNum) {
-        return String.format("<p>Problem：<a style='color:#1A5CC8' href='https://codeforces.com/problemset/problem/%s/%s'>%s</a></p><p>" +
+        return String.format("<p>Problem：<a style='color:#1A5CC8' href='https://codeforc.es/problemset/problem/%s/%s'>%s</a></p><p>" +
                         "Contest：" + ReUtil.get("(<a[^<>]+/contest/\\d+\">.+?</a>)", html, 1)
                         .replace("/contest", HOST + "/contest")
                         .replace("color: black", "color: #009688;") + "</p>",

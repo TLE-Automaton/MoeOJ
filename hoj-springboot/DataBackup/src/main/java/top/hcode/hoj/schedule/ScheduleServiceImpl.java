@@ -246,7 +246,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 //    @Scheduled(cron = "0/5 * * * * *")
     @Override
     public void getCodeforcesRating() {
-        String codeforcesUserInfoAPI = "https://codeforces.com/api/user.info?handles=%s";
+        String codeforcesUserInfoAPI = "https://codeforc.es/api/user.info?handles=%s";
         QueryWrapper<UserInfo> userInfoQueryWrapper = new QueryWrapper<>();
         // 查询cf_username不为空的数据
         userInfoQueryWrapper.isNotNull("cf_username");

@@ -26,8 +26,8 @@ import java.util.concurrent.TimeUnit;
 public class CodeForcesJudge extends RemoteJudgeStrategy {
 
 
-    public static final String IMAGE_HOST = "https://codeforces.com";
-    public static final String HOST = "https://codeforces.com";
+    public static final String IMAGE_HOST = "https://codeforc.es";
+    public static final String HOST = "https://codeforc.es";
     public static final String LOGIN_URL = "/enter";
     public static final String SUBMIT_URL = "/contest/%s/submit";
     public static final String SUBMISSION_RESULT_URL = "/api/user.status?handle=%s&from=1&count=%s";
