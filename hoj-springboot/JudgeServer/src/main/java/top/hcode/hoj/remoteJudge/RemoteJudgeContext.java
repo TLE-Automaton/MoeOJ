@@ -41,7 +41,6 @@ public class RemoteJudgeContext {
         String[] source = toJudgeDTO.getRemoteJudgeProblem().split("-");
         String remoteOj = source[0];
         String remoteProblemId = source[1];
-
         RemoteJudgeDTO remoteJudgeDTO = RemoteJudgeDTO.builder()
                 .judgeId(toJudgeDTO.getJudge().getSubmitId())
                 .uid(toJudgeDTO.getJudge().getUid())
@@ -78,8 +77,8 @@ public class RemoteJudgeContext {
         }
     }
 
-    private void initProblemId(RemoteJudgeDTO remoteJudgeDTO){
-        switch (remoteJudgeDTO.getOj()){
+    private void initProblemId(RemoteJudgeDTO remoteJudgeDTO) {
+        switch (remoteJudgeDTO.getOj()) {
             case "GYM":
             case "CF":
                 if (NumberUtil.isInteger(remoteJudgeDTO.getCompleteProblemId())) {
@@ -94,6 +93,13 @@ public class RemoteJudgeContext {
                 String[] arr = remoteJudgeDTO.getCompleteProblemId().split("_");
                 remoteJudgeDTO.setContestId(arr[0]);
                 remoteJudgeDTO.setProblemNum(arr[1]);
+                break;
+            case "LIBRE":
+                //libre oj 题目展示和实际提交id有可能不一样，例如LIBRE-6764(41180)
+                String realSubmitProblemId = ReUtil.get("\\d+\\((\\d+)\\)", remoteJudgeDTO.getCompleteProblemId(), 1);
+                if (realSubmitProblemId != null) {
+                    remoteJudgeDTO.setCompleteProblemId(realSubmitProblemId);
+                }
                 break;
         }
     }

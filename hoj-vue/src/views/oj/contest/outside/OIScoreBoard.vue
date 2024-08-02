@@ -437,26 +437,14 @@
                 effect="dark"
                 placement="top"
               >
-                <div slot="content">
+              <div slot="content">
                   {{ problem.displayId + '. ' + problem.displayTitle }}
                   <br />
-                  {{
-                    'Accepted: ' +
-                      getProblemCount(problemACCountMap[problem.displayId])
-                  }}
+                  {{ 'Accepted: ' + problem.ac }}
                   <br />
-                  {{
-                    'Rejected: ' +
-                      getProblemCount(problemErrorCountMap[problem.displayId])
-                  }}
+                  {{ 'Rejected: ' + (problem.total - problem.ac) }}
                 </div>
-                <span>({{
-                    getProblemCount(problemACCountMap[problem.displayId])
-                  }}/{{
-                    getProblemCount(problemACCountMap[problem.displayId]) +
-                      getProblemCount(problemErrorCountMap[problem.displayId])
-                  }})
-                </span>
+              <span>({{ problem.ac }}/{{ problem.total }}) </span>
               </el-tooltip>
             </span>
           </template>
@@ -515,8 +503,6 @@ export default {
       CONTEST_STATUS_REVERSE: {},
       CONTEST_TYPE_REVERSE: {},
       RULE_TYPE: {},
-      problemACCountMap: {},
-      problemErrorCountMap: {},
     };
   },
   created() {
@@ -554,8 +540,6 @@ export default {
       });
     },
     applyToTable(dataRank) {
-      let acCountMap = {};
-      let errorCountMap = {};
       dataRank.forEach((rank, i) => {
         let submissionInfo = rank.submissionInfo;
         let timeInfo = rank.timeInfo;
@@ -565,23 +549,13 @@ export default {
         }
         Object.keys(submissionInfo).forEach((problemID) => {
           rank[problemID] = submissionInfo[problemID];
-          if (!acCountMap[problemID]) {
-            acCountMap[problemID] = 0;
-          }
-          if (!errorCountMap[problemID]) {
-            errorCountMap[problemID] = 0;
-          }
-
           let score = submissionInfo[problemID];
           if (timeInfo != null && timeInfo[problemID] != undefined) {
             cellClass[problemID] = "oi-100";
-            acCountMap[problemID] += 1;
           } else if (score == 0) {
             cellClass[problemID] = "oi-0";
-            errorCountMap[problemID] += 1;
           } else if (score != null) {
             cellClass[problemID] = "oi-between";
-            errorCountMap[problemID] += 1;
           }
         });
         rank.cellClassName = cellClass;
@@ -597,8 +571,6 @@ export default {
         );
       });
       this.dataRank = dataRank;
-      this.problemACCountMap = acCountMap;
-      this.problemErrorCountMap = errorCountMap;
     },
   },
 };
